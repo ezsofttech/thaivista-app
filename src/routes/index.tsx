@@ -14,7 +14,8 @@ import pVilla from "@/assets/p-villa.jpg";
 import pCommercial from "@/assets/p-commercial.jpg";
 import pLand from "@/assets/p-land.jpg";
 import pTownhouse from "@/assets/p-townhouse.jpg";
-import logoAsset from "@/assets/thaivista-logo.png.asset.json";
+
+const LOGO_SRC = "/assets/Settings/thaivista-logo-transparent.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -56,12 +57,14 @@ function useReveal() {
   }, []);
 }
 
-function Logo({ className = "h-11 w-auto" }: { className?: string }) {
+function Logo({ className = "h-14 w-auto max-w-[14rem] object-contain" }: { className?: string }) {
   return (
     <a href="#home" className="flex items-center" aria-label="THAIVISTA PROPERTIES home">
       <img
-        src={logoAsset.url}
+        src={LOGO_SRC}
         alt="Thaivista Properties Co., Ltd. — Buy, Sell, Rent, Invest"
+        width={843}
+        height={359}
         className={className}
       />
     </a>
@@ -105,7 +108,7 @@ function Index() {
       {/* NAVBAR */}
       <header className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${scrolled ? "bg-ink-deep/95 py-4 backdrop-blur" : "bg-transparent py-7"}`}>
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 lg:px-10">
-          <Logo />
+          <Logo className="h-20 w-auto max-w-[15rem] object-contain" />
           <nav className="hidden items-center gap-7 xl:flex" aria-label="Primary">
             {NAV.map(([label, id]) => (
               <a key={label} href={`#${id}`}
